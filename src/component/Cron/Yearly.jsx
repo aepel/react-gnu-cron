@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { FormControlLabel, FormGroup, Radio, Stack, TextField } from '@mui/material'
 import classNames from 'classnames/bind'
-import ChooseTime from './components/ChooseTime'
 import styles from './styles.css'
 import cronMessages from './components/cronMessages'
 
 import { useIntl } from 'react-intl'
+import ChooseMonth from './components/ChooseMonth'
 
 const classes = classNames.bind(styles)
 
@@ -14,27 +14,16 @@ const Yearly = ({ cronExpression, onChange }) => {
   const {formatMessage} = useIntl()
   const onDayChange = e => {
     if ((parseInt(e.target.value, 10) > 0 && parseInt(e.target.value, 10) <= 31) || e.target.value === '') {
-      const val = [
-        cronExpression[0] === '*' ? '0' : cronExpression[0],
-        cronExpression[1] === '*' ? '0' : cronExpression[1],
-        cronExpression[2],
-        '1/1',
-        '?',
-      ]
+      const val = [...cronExpression]
       val[2] = `${e.target.value}`
       onChange(val)
     }
   }
-  const onEveryXMonth = e => {
-    if ((parseInt(e.target.value, 10) > 0 && parseInt(e.target.value, 10) <= 11) || e.target.value === '') {
-      const val = [...cronExpression]
-      val[3]='1/'+e.target.value
-      onChange(val)
-    }
-  }
-  const onAtHourChange = e => {
+
+  const onMonthChange = e => {
     const val = [...cronExpression]
-    val[1] = `${e.target.value}`
+    console.log("🚀 ~ file: Yearly.jsx ~ line 38 ~ onMonthChange ~ e.target.value", e.target.value)
+    val[3] = `${e.target.value}`
     onChange(val)
   }
   const onAtMinuteChange = e => {
@@ -55,47 +44,19 @@ const Yearly = ({ cronExpression, onChange }) => {
                   checked={every==1}    
                   onChange={() => {
                       setEvery('1')
-                      onChange([
-                        '0',
-                        '0',
-                        '1',
-                        '*',
-                        '*',
-                      ])
+                      onChange(['0', '0', '1', '1', '*'])
                     }} />}
-                  label={formatMessage(cronMessages.dayOfEveryMonth)}
+                  label={formatMessage(cronMessages.dayOfTheMonth)}
                 />
               </FormGroup>
-              <FormGroup row>
-              <FormControlLabel
-                control={
-                  <Radio
-                    color="primary"
-                    value={cronExpression[2]}
-                    onChange={() => {
-                      setEvery('2')
-                      onChange([
-                        cronExpression[0] === '*' ? '0' : cronExpression[0],
-                        cronExpression[1] === '*' ? '0' : cronExpression[1],
-                        '1',
-                        '*/3',
-                        '*',
-                      ])
-                    }}
-                    checked={every==2}
-                  />
-                }
-                label="Every x months"
-              />
-            </FormGroup>
+            
             </Stack>
             <Stack direction="column" spacing={2} alignItems="flex-end" justifyContent="flex-end" />
           </Stack>
         </div>
       </Stack>
       <Stack direction="row" spacing={1} alignItems="center">
-        {every === '1' ? (
-          <TextField
+      <TextField
             id="outlined-number"
             label={formatMessage(cronMessages.dayOfEveryMonth)}
             value={cronExpression[2]}
@@ -106,24 +67,10 @@ const Yearly = ({ cronExpression, onChange }) => {
             }}
             margin="normal"
           />
-        ) : (<TextField
-            id="outlined-number"
-            label={formatMessage(cronMessages.dayOfEveryMonth)}
-            value={cronExpression[3].split('/')[1]}
-            onChange={onEveryXMonth}
-            type="number"
-            InputLabelProps={{
-              shrink: true,
-            }}
-            InputProps={{ inputProps: { min: 1, max: 11 } }}
-            margin="normal"
-          />)}
           <Stack direction="row" spacing={1} alignItems="flex-start">
-            <ChooseTime
-              hour={cronExpression[1]}
-              minute={cronExpression[0]}
-              changeHours={onAtHourChange}
-              changeMinutes={onAtMinuteChange}
+            <ChooseMonth
+              month={cronExpression[3]}
+              changeMonth={onMonthChange}
             />
           </Stack> 
       </Stack>

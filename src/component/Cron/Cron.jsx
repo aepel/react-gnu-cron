@@ -21,7 +21,7 @@ const options = [
   { name: 'weekly', Component: Weekly, value: ['0', '0', '1/1', '*', '*'] },
   { name: 'monthly', Component: Monthly, value: ['0', '0', '1', '*', '*'] },
   { name: 'quarterly', Component: Quarterly, value: ['0', '0', '1', '*/3', '*'] },
-  // { name: 'yearly', Component: Yearly, value: ['0', '0', '1', '1', '*'] },
+  { name: 'yearly', Component: Yearly, value: ['0', '0', '1', '1', '*'] },
 ]
 
 const Cron = ({ showResultText, showResultCron, onChange, value = null }) => {

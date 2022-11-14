@@ -1,7 +1,6 @@
 import React from 'react'
 import { MenuItem, TextField, Stack } from '@mui/material'
 import classNames from 'classnames/bind'
-
 import styles from '../styles.css'
 import range  from 'lodash/range'
 import cronMessages from './cronMessages'
@@ -18,16 +17,15 @@ const ChooseMonth = ({  month, changeMonth, disabled }) => {
       <TextField
         select
         value={month}
-        onChange={changeHours}
+        onChange={changeMonth}
         disabled={disabled}
         variant="standard"
         className={classes('Input_Width')}
         label={formatMessage(cronMessages.month)}
       >
-        {range(1, 12).map(m => (
+        {range(1, 13).map(m => (
           <MenuItem key={m} id={m} value={m}>
-            {/* {formatMessage(cronMessages[m])} */}
-            {m}
+            {formatMessage(cronMessages[m])}
           </MenuItem>
         ))}
       </TextField>

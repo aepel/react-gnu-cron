@@ -5,6 +5,14 @@ export default defineMessages({
     id: 'components.shared.daily',
     defaultMessage: 'Daily',
   },
+  onceAYear:{
+    id: 'components.shared.onceAYear',
+    defaultMessage: 'Once a year',
+  },
+  yearly: {
+    id: 'components.shared.yearly',
+    defaultMessage: 'Yearly',
+  },
   month:{
     id: 'components.shared.month',
     defaultMessage: 'Month(s)',
@@ -73,6 +81,10 @@ export default defineMessages({
   daysBeforeEndMonth: {
     id: 'components.shared.daysBeforeEndMonth',
     defaultMessage: 'Day(s) before the end of the month',
+  },
+  dayOfTheMonth: {
+    id: 'components.shared.dayOfTheMonth',
+    defaultMessage: 'Day in the month',
   },
   dayOfEveryQuarter: {
     id: 'components.shared.dayOfEveryQuarter',
