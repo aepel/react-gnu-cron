@@ -1,0 +1,16 @@
+.Tab_Margin {
+  margin-bottom: 10px;
+}
+
+.Content {
+  margin-left: 12px;
+}
+
+.Input_Wrapper {
+  margin-bottom: 8px;
+}
+
+.Input_Width {
+  min-width: 200px;
+  width: 200px;
+}

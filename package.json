@@ -1,0 +1,260 @@
+{
+  "name": "react-cron",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/material": "^5.10.13",
+    "@mui/styled-engine-sc": "^5.10.6",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "babel-eslint": "^10.1.0",
+    "classnames": "^2.3.2",
+    "cronstrue": "^2.15.0",
+    "eslint": "^8.27.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-react": "^7.31.10",
+    "lodash": "^4.17.21",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-intl": "^6.2.1",
+    "react-scripts": "5.0.1",
+    "styled-components": "^5.3.6",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint src/**/*.js src/**/*.jsx"
+  },
+  "eslintConfig": {
+    "plugins": [
+      "prettier",
+      "react",
+      "react-hooks",
+      "small-import",
+      "lodash"
+    ],
+    "extends": [
+      "airbnb",
+      "plugin:prettier/recommended",
+      "plugin:lodash/canonical",
+      "plugin:security/recommended"
+    ],
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "ecmaVersion": 2019,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true,
+        "legacyDecorators": true
+      }
+    },
+    "env": {
+      "browser": true,
+      "es6": true,
+      "node": true,
+      "jest": true
+    },
+    "rules": {
+      "default-param-last": "off",
+      "consistent-return": "off",
+      "class-methods-use-this": "off",
+      "no-console": [
+        "error",
+        {
+          "allow": [
+            "warn",
+            "error"
+          ]
+        }
+      ],
+      "func-names": "off",
+      "global-require": "off",
+      "import/extensions": "off",
+      "import/no-extraneous-dependencies": "off",
+      "import/no-named-as-default": "off",
+      "import/no-unresolved": "off",
+      "import/no-named-as-default-member": "off",
+      "jsx-a11y/anchor-has-content": "off",
+      "jsx-a11y/label-has-for": "warn",
+      "jsx-a11y/anchor-is-valid": [
+        "error",
+        {
+          "specialLink": [
+            "to"
+          ]
+        }
+      ],
+      "new-cap": [
+        "error",
+        {
+          "properties": false
+        }
+      ],
+      "newline-per-chained-call": "off",
+      "no-nested-ternary": "off",
+      "no-param-reassign": "off",
+      "no-plusplus": [
+        "error",
+        {
+          "allowForLoopAfterthoughts": true
+        }
+      ],
+      "no-restricted-syntax": "off",
+      "no-return-assign": [
+        2,
+        "except-parens"
+      ],
+      "no-shadow": "off",
+      "no-use-before-define": "off",
+      "prettier/prettier": [
+        "error",
+        {
+          "arrowParens": "avoid",
+          "eol": "lf",
+          "parser": "babel",
+          "semi": false,
+          "singleQuote": true,
+          "trailingComma": "es5",
+          "printWidth": 120
+        }
+      ],
+      "object-curly-newline": [
+        "error",
+        {
+          "consistent": true
+        }
+      ],
+      "react/no-multi-comp": "off",
+      "react/no-unescaped-entities": "off",
+      "react/prop-types": [
+        "error",
+        {
+          "skipUndeclared": true
+        }
+      ],
+      "react/forbid-prop-types": "off",
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn",
+      "no-unused-vars": [
+        "warn",
+        {
+          "varsIgnorePattern": "[iI]gnored",
+          "ignoreRestSiblings": true
+        }
+      ],
+      "react/destructuring-assignment": "off",
+      "react/jsx-props-no-spreading": "off",
+      "react/static-property-placement": "off",
+      "react/jsx-fragments": "off",
+      "react/state-in-constructor": "off",
+      "react/jsx-curly-newline": "off",
+      "react/jsx-no-bind": "off",
+      "react/no-array-index-key": "off",
+      "import/no-cycle": "off",
+      "require-yield": "off",
+      "padding-line-between-statements": [
+        "error",
+        {
+          "blankLine": "always",
+          "prev": "function",
+          "next": "function"
+        }
+      ],
+      "small-import/no-full-import": "warn",
+      "lodash/import-scope": [
+        2,
+        "method"
+      ],
+      "lodash/collection-method-value": "off",
+      "lodash/consistent-compose": "off",
+      "lodash/identity-shorthand": "off",
+      "lodash/prefer-lodash-method": "off",
+      "lodash/prefer-includes": "off",
+      "lodash/prefer-noop": "off",
+      "lodash/prefer-find": "off",
+      "lodash/preferred-alias": "off",
+      "lodash/prefer-is-nil": "off",
+      "lodash/prop-shorthand": "off",
+      "lodash/prefer-times": "off",
+      "lodash/prefer-startswith": "off",
+      "lodash/prefer-lodash-chain": "off",
+      "lodash/prefer-constant": "off",
+      "lodash/prefer-lodash-typecheck": "off",
+      "lodash/path-style": "off",
+      "lodash/prefer-immutable-method": "off",
+      "no-restricted-imports": [
+        "error",
+        {
+          "paths": [
+            {
+              "name": "react-intl",
+              "importNames": [
+                "useIntl"
+              ],
+              "message": "Use 'useI18n' from hooks/ folder."
+            }
+          ]
+        }
+      ],
+      "security/detect-object-injection": "off",
+      "security/detect-non-literal-regexp": "off",
+      "import/prefer-default-export": "off",
+      "import/no-duplicates": [
+        "error",
+        {
+          "considerQueryString": true
+        }
+      ],
+      "import/order": [
+        "error",
+        {
+          "groups": [
+            "builtin",
+            "external",
+            "internal"
+          ],
+          "pathGroups": [
+            {
+              "pattern": "react",
+              "group": "external",
+              "position": "before"
+            }
+          ],
+          "pathGroupsExcludedImportTypes": [
+            "react"
+          ],
+          "newlines-between": "never",
+          "alphabetize": {
+            "order": "asc",
+            "caseInsensitive": true
+          }
+        }
+      ]
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-lodash": "^7.4.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-security": "^1.5.0",
+    "eslint-plugin-small-import": "^1.0.0"
+  }
+}
