@@ -5,7 +5,7 @@ export default defineMessages({
     id: 'components.shared.daily',
     defaultMessage: 'Daily',
   },
-  onceAYear:{
+  onceAYear: {
     id: 'components.shared.onceAYear',
     defaultMessage: 'Once a year',
   },
@@ -13,7 +13,7 @@ export default defineMessages({
     id: 'components.shared.yearly',
     defaultMessage: 'Yearly',
   },
-  month:{
+  month: {
     id: 'components.shared.month',
     defaultMessage: 'Month(s)',
   },
@@ -115,51 +115,51 @@ export default defineMessages({
     id: 'components.shared.execute',
     defaultMessage: 'Execute',
   },
-  1:{
+  1: {
     id: 'components.shared.1',
     defaultMessage: 'January',
   },
-  2:{
+  2: {
     id: 'components.shared.2',
     defaultMessage: 'February',
   },
-  3:{
+  3: {
     id: 'components.shared.3',
     defaultMessage: 'March',
   },
-  4:{
+  4: {
     id: 'components.shared.4',
     defaultMessage: 'April',
   },
-  5:{
+  5: {
     id: 'components.shared.5',
     defaultMessage: 'May',
   },
-  6:{
+  6: {
     id: 'components.shared.6',
     defaultMessage: 'June',
   },
-  7:{
+  7: {
     id: 'components.shared.7',
     defaultMessage: 'July',
   },
-  8:{
+  8: {
     id: 'components.shared.8',
     defaultMessage: 'August',
   },
-  9:{
+  9: {
     id: 'components.shared.9',
     defaultMessage: 'September',
   },
-  10:{
+  10: {
     id: 'components.shared.10',
     defaultMessage: 'October',
   },
-  11:{
+  11: {
     id: 'components.shared.11',
     defaultMessage: 'November',
   },
-  12:{
+  12: {
     id: 'components.shared.12',
     defaultMessage: 'December',
   },

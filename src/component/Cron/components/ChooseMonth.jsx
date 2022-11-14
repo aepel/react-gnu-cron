@@ -1,16 +1,15 @@
 import React from 'react'
 import { MenuItem, TextField, Stack } from '@mui/material'
 import classNames from 'classnames/bind'
-import styles from '../styles.css'
-import range  from 'lodash/range'
-import cronMessages from './cronMessages'
+import range from 'lodash/range'
 import { useIntl } from 'react-intl'
+import styles from '../styles.css'
+import cronMessages from './cronMessages'
 
 const classes = classNames.bind(styles)
 
-const ChooseMonth = ({  month, changeMonth, disabled }) => {
-  const {formatMessage} = useIntl()
-
+function ChooseMonth({ month, changeMonth, disabled }) {
+  const { formatMessage } = useIntl()
 
   return (
     <Stack direction="row" spacing={1} alignItems="flex-start" className={classes('Input_Wrapper')}>

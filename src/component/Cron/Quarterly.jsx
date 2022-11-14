@@ -1,16 +1,15 @@
 import React, { useState } from 'react'
 import { FormControlLabel, FormGroup, Radio, Stack, TextField } from '@mui/material'
 import classNames from 'classnames/bind'
-import ChooseTime from './components/ChooseTime'
-import styles from './styles.css'
-import cronMessages from './components/cronMessages'
-
 import { useIntl } from 'react-intl'
+import ChooseTime from './components/ChooseTime'
+import cronMessages from './components/cronMessages'
+import styles from './styles.css'
 
 const classes = classNames.bind(styles)
-const Quarterly = ({ cronExpression, onChange }) => {
+function Quarterly({ cronExpression, onChange }) {
   const [every, setEvery] = useState('1')
-  const {formatMessage} = useIntl()
+  const { formatMessage } = useIntl()
   const onDayChange = e => {
     if ((parseInt(e.target.value, 10) > 0 && parseInt(e.target.value, 10) <= 31) || e.target.value === '') {
       const val = [cronExpression[0], cronExpression[1], cronExpression[2], '*/3', '*']
@@ -79,21 +78,19 @@ const Quarterly = ({ cronExpression, onChange }) => {
       </Stack>
       <Stack direction="row" spacing={1} alignItems="center">
         {every === '1' ? (
-          <>
-            <TextField
-              id="outlined-number"
-              label={formatMessage(cronMessages.dayOfEveryQuarter)}
-              value={cronExpression[2]}
-              onChange={onDayChange}
-              type="number"
-              InputLabelProps={{
-                readOnly: every !== '1',
-                shrink: true,
-              }}
-              margin="normal"
-              disabled={every !== '1'}
-            />
-          </>
+          <TextField
+            id="outlined-number"
+            label={formatMessage(cronMessages.dayOfEveryQuarter)}
+            value={cronExpression[2]}
+            onChange={onDayChange}
+            type="number"
+            InputLabelProps={{
+              readOnly: every !== '1',
+              shrink: true,
+            }}
+            margin="normal"
+            disabled={every !== '1'}
+          />
         ) : null}
         <ChooseTime
           hour={cronExpression[1]}

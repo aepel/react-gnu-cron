@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { Card, CardContent, Tab, Tabs } from '@mui/material'
 import classNames from 'classnames/bind'
 import PropTypes from 'prop-types'
-
+import { useIntl } from 'react-intl'
+import cronMessages from './components/cronMessages'
 import DisplayCard from './components/DisplayCard'
 import Daily from './Daily'
 import Monthly from './Monthly'
@@ -10,9 +11,7 @@ import Quarterly from './Quarterly'
 import styles from './styles.css'
 import { getCronHumanValue } from './utils'
 import Weekly from './Weekly'
-import cronMessages from './components/cronMessages'
-import { useIntl } from 'react-intl'
-import Yearly from './Yearly';
+import Yearly from './Yearly'
 
 const classes = classNames.bind(styles)
 const DEFAULT_VALUE = ['0', '0', '1/1', '*', '*']
@@ -24,10 +23,9 @@ const options = [
   { name: 'yearly', Component: Yearly, value: ['0', '0', '1', '1', '*'] },
 ]
 
-const Cron = ({ showResultText, showResultCron, onChange, value = null }) => {
+function Cron({ showResultText, showResultCron, onChange, value = null }) {
   const intl = useIntl()
-  console.log("🚀 ~ file: Cron.jsx ~ line 27 ~ Cron ~ intl", intl)
-  const { locale, formatMessage } =intl
+  const { locale, formatMessage } = intl
 
   const [cronExpression, setCronExpression] = useState(value ?? DEFAULT_VALUE)
   const [selectedTab, setSelectedTab] = useState(0)
@@ -60,7 +58,12 @@ const Cron = ({ showResultText, showResultCron, onChange, value = null }) => {
       <CardContent>
         <Tabs value={selectedTab} className={classes('Tab_Margin')}>
           {options.map((option, idx) => (
-            <Tab fullWidth key={idx} label={formatMessage(cronMessages[option.name])} onClick={() => onTabChange(idx)} />
+            <Tab
+              fullWidth
+              key={idx}
+              label={formatMessage(cronMessages[option.name])}
+              onClick={() => onTabChange(idx)}
+            />
           ))}
         </Tabs>
 

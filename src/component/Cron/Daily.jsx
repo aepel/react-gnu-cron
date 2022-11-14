@@ -1,16 +1,15 @@
 import React, { useState } from 'react'
 import { FormControlLabel, FormGroup, Radio, Stack, TextField } from '@mui/material'
 import classNames from 'classnames/bind'
-
-import ChooseTime from './components/ChooseTime'
-import styles from './styles.css'
-import cronMessages from './components/cronMessages'
 import { useIntl } from 'react-intl'
+import ChooseTime from './components/ChooseTime'
+import cronMessages from './components/cronMessages'
+import styles from './styles.css'
 
 const classes = classNames.bind(styles)
 
-const Daily = ({ cronExpression, onChange }) => {
-  const  {formatMessage} = useIntl()
+function Daily({ cronExpression, onChange }) {
+  const { formatMessage } = useIntl()
   const [days, setDays] = useState(1)
   const onDayChange = e => {
     if ((e.target.value > 0 && e.target.value < 32) || e.target.value === '') {

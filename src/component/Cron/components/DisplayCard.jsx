@@ -1,11 +1,10 @@
 import React from 'react'
 import { Typography } from '@mui/material'
-import cronMessages from './cronMessages'
 import { useIntl } from 'react-intl'
-
+import cronMessages from './cronMessages'
 
 export default function DisplayCard({ textResult, cronResult }) {
-  const {formatMessage} = useIntl()
+  const { formatMessage } = useIntl()
 
   return (
     <Typography>
