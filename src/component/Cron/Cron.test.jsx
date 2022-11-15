@@ -9,12 +9,12 @@ import Cron from './Cron'
 const props = {
   showResultText: false,
   showResultCron: true,
-  onChange: () => true,
+  onChange: jest.fn(),
 }
 
 describe('Cron Component', () => {
   describe('snapshot test', () => {
-    it('should shallow render export list correctly', () => {
+    test('should shallow render export list correctly', () => {
       const { asFragment } = render(
         <IntlProvider messages={cronMessages} locale="en" defaultLocale="en">
           <Cron {...props} />
@@ -24,7 +24,7 @@ describe('Cron Component', () => {
     })
   })
   describe('Weekly', () => {
-    it('Should return default cron expression for daily', async () => {
+    test('Should return default cron expression for daily', async () => {
       render(
         <IntlProvider messages={cronMessages} locale="en" defaultLocale="en">
           <Cron {...props} />
@@ -32,9 +32,10 @@ describe('Cron Component', () => {
       )
       await userEvent.click(screen.getByText('Weekly'))
       expect(screen.getByText('(0 0 1/1 * *)')).toBeInTheDocument()
+      expect(props.onChange).toHaveBeenLastCalledWith('0 0 1/1 * *'.split(' '), 'At 12:00 AM, every day', 'weekly')
     })
 
-    it('Should return default cron expression for Every Tuesday and friday', async () => {
+    test('Should return default cron expression for Every Tuesday and friday', async () => {
       render(
         <IntlProvider messages={cronMessages} locale="en" defaultLocale="en">
           <Cron {...props} />
@@ -44,6 +45,11 @@ describe('Cron Component', () => {
       await userEvent.click(screen.getByText('Tuesday'))
       await userEvent.click(screen.getByText('Monday'))
       expect(screen.getByText('(0 0 1/1 * MON,TUE)')).toBeInTheDocument()
+      expect(props.onChange).toHaveBeenLastCalledWith(
+        '0 0 1/1 * MON,TUE'.split(' '),
+        'At 12:00 AM, only on Monday and Tuesday',
+        'weekly'
+      )
     })
   })
 
@@ -56,6 +62,11 @@ describe('Cron Component', () => {
       )
       await userEvent.click(screen.getByText('Quarterly'))
       expect(screen.getByText('(0 0 1 */3 *)')).toBeInTheDocument()
+      expect(props.onChange).toHaveBeenLastCalledWith(
+        '0 0 1 */3 *'.split(' '),
+        'At 12:00 AM, on day 1 of the month, every 3 months',
+        'quarterly'
+      )
     })
   })
   describe('Monthly', () => {
@@ -68,6 +79,11 @@ describe('Cron Component', () => {
       await userEvent.click(screen.getByText('Monthly'))
 
       expect(screen.getByText('(0 0 1 * *)')).toBeInTheDocument()
+      expect(props.onChange).toHaveBeenLastCalledWith(
+        '0 0 1 * *'.split(' '),
+        'At 12:00 AM, on day 1 of the month',
+        'monthly'
+      )
     })
   })
   describe('Daily', () => {
@@ -80,6 +96,7 @@ describe('Cron Component', () => {
       await userEvent.click(screen.getByText('Daily'))
 
       expect(screen.getByText('(0 0 1/1 * *)')).toBeInTheDocument()
+      expect(props.onChange).toHaveBeenLastCalledWith('0 0 1/1 * *'.split(' '), 'At 12:00 AM, every day', 'daily')
     })
     it('Should return default cron expression for Every week day', async () => {
       render(
@@ -91,6 +108,11 @@ describe('Cron Component', () => {
       await userEvent.click(screen.getByText('Every week day'))
 
       expect(screen.getByText('(0 0 * * 1-5)')).toBeInTheDocument()
+      expect(props.onChange).toHaveBeenLastCalledWith(
+        '0 0 * * 1-5'.split(' '),
+        'At 12:00 AM, Monday through Friday',
+        'daily'
+      )
     })
   })
 })
