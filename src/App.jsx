@@ -6,7 +6,7 @@ import logo from './logo.svg'
 import './App.css'
 
 function App() {
-  const handleOnChange = (val1, val2, val3) => console.log(val1, val2, val3)
+  const handleOnChange = (cronExpression, humanReadable, tab) => true
   return (
     <IntlProvider messages={cronMessages} locale="en" defaultLocale="en">
       <div className="App">

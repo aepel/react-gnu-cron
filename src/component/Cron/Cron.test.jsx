@@ -2,7 +2,8 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom'
-import { I18nProvider } from '../../providers/I18nProvider'
+import { IntlProvider } from 'react-intl'
+import cronMessages from './components/cronMessages'
 import Cron from './Cron'
 
 const props = {
@@ -15,9 +16,9 @@ describe('Cron Component', () => {
   describe('snapshot test', () => {
     it('should shallow render export list correctly', () => {
       const { asFragment } = render(
-        <I18nProvider>
+        <IntlProvider messages={cronMessages} locale="en" defaultLocale="en">
           <Cron {...props} />
-        </I18nProvider>
+        </IntlProvider>
       )
       expect(asFragment()).toMatchSnapshot()
     })
@@ -25,18 +26,19 @@ describe('Cron Component', () => {
   describe('Weekly', () => {
     it('Should return default cron expression for daily', async () => {
       render(
-        <I18nProvider>
+        <IntlProvider messages={cronMessages} locale="en" defaultLocale="en">
           <Cron {...props} />
-        </I18nProvider>
+        </IntlProvider>
       )
       await userEvent.click(screen.getByText('Weekly'))
       expect(screen.getByText('(0 0 1/1 * *)')).toBeInTheDocument()
     })
+
     it('Should return default cron expression for Every Tuesday and friday', async () => {
       render(
-        <I18nProvider>
+        <IntlProvider messages={cronMessages} locale="en" defaultLocale="en">
           <Cron {...props} />
-        </I18nProvider>
+        </IntlProvider>
       )
       await userEvent.click(screen.getByText('Weekly'))
       await userEvent.click(screen.getByText('Tuesday'))
@@ -48,9 +50,9 @@ describe('Cron Component', () => {
   describe('Quarterly', () => {
     it('Should return default cron expression for Quarterly', async () => {
       render(
-        <I18nProvider>
+        <IntlProvider messages={cronMessages} locale="en" defaultLocale="en">
           <Cron {...props} />
-        </I18nProvider>
+        </IntlProvider>
       )
       await userEvent.click(screen.getByText('Quarterly'))
       expect(screen.getByText('(0 0 1 */3 *)')).toBeInTheDocument()
@@ -59,9 +61,9 @@ describe('Cron Component', () => {
   describe('Monthly', () => {
     it('Should return default cron expression for Day of Every Months(s)', async () => {
       render(
-        <I18nProvider>
+        <IntlProvider messages={cronMessages} locale="en" defaultLocale="en">
           <Cron {...props} />
-        </I18nProvider>
+        </IntlProvider>
       )
       await userEvent.click(screen.getByText('Monthly'))
 
@@ -71,9 +73,9 @@ describe('Cron Component', () => {
   describe('Daily', () => {
     it('Should return default cron expression for Every Day(s)', async () => {
       render(
-        <I18nProvider>
+        <IntlProvider messages={cronMessages} locale="en" defaultLocale="en">
           <Cron {...props} />
-        </I18nProvider>
+        </IntlProvider>
       )
       await userEvent.click(screen.getByText('Daily'))
 
@@ -81,9 +83,9 @@ describe('Cron Component', () => {
     })
     it('Should return default cron expression for Every week day', async () => {
       render(
-        <I18nProvider>
+        <IntlProvider messages={cronMessages} locale="en" defaultLocale="en">
           <Cron {...props} />
-        </I18nProvider>
+        </IntlProvider>
       )
       await userEvent.click(screen.getByText('Daily'))
       await userEvent.click(screen.getByText('Every week day'))
