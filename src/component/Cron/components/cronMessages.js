@@ -5,6 +5,10 @@ export default defineMessages({
     id: 'components.shared.daily',
     defaultMessage: 'Daily',
   },
+  minutely: {
+    id: 'components.shared.minutely',
+    defaultMessage: 'Minutely',
+  },
   onceAYear: {
     id: 'components.shared.onceAYear',
     defaultMessage: 'Once a year',
@@ -47,7 +51,7 @@ export default defineMessages({
   },
   dayOfEveryMonth: {
     id: 'components.shared.dayOfEveryMonth',
-    defaultMessage: 'Day of Every Months(s)',
+    defaultMessage: 'Day of Every Month(s)',
   },
 
   monday: {
@@ -113,7 +117,7 @@ export default defineMessages({
   },
   everyXMonths: {
     id: 'components.shared.execute',
-    defaultMessage: 'Execute',
+    defaultMessage: 'Execute every x month',
   },
   1: {
     id: 'components.shared.1',

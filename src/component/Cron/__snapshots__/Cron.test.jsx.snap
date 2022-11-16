@@ -21,6 +21,18 @@ exports[`Cron Component snapshot test should shallow render export list correctl
             role="tablist"
           >
             <button
+              aria-selected="false"
+              class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary css-1h9z7r5-MuiButtonBase-root-MuiTab-root"
+              role="tab"
+              tabindex="-1"
+              type="button"
+            >
+              Minutely
+              <span
+                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              />
+            </button>
+            <button
               aria-selected="true"
               class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected css-1h9z7r5-MuiButtonBase-root-MuiTab-root"
               role="tab"
@@ -340,7 +352,7 @@ exports[`Cron Component snapshot test should shallow render export list correctl
       <p
         class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
       >
-        (0 0 1/1 * *)
+        (0 0 */1 * *)
       </p>
     </div>
   </div>

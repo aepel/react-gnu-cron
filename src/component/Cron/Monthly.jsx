@@ -76,7 +76,7 @@ function Monthly({ cronExpression, onChange }) {
                           cronExpression[0] === '*' ? '0' : cronExpression[0],
                           cronExpression[1] === '*' ? '0' : cronExpression[1],
                           '1',
-                          '*/3',
+                          '1/3',
                           '*',
                         ])
                       }}
@@ -105,8 +105,9 @@ function Monthly({ cronExpression, onChange }) {
           />
         ) : (
           <TextField
+            style={{ minWidth: '30%' }}
             id="outlined-number"
-            label={formatMessage(cronMessages.dayOfEveryMonth)}
+            label={formatMessage(cronMessages.everyXMonths)}
             value={cronExpression[3].split('/')[1]}
             onChange={onEveryXMonth}
             type="number"

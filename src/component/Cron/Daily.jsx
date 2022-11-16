@@ -59,7 +59,7 @@ function Daily({ cronExpression, onChange }) {
               color="primary"
               value="4"
               onChange={() => {
-                onChange([cronExpression[0], cronExpression[1], '*', '*', '1-5'])
+                onChange([cronExpression[0], cronExpression[1], '1/1', '*', '1-5'])
               }}
               checked={cronExpression[4] === '1-5'}
             />

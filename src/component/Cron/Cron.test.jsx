@@ -31,8 +31,8 @@ describe('Cron Component', () => {
         </IntlProvider>
       )
       await userEvent.click(screen.getByText('Weekly'))
-      expect(screen.getByText('(0 0 1/1 * *)')).toBeInTheDocument()
-      expect(props.onChange).toHaveBeenLastCalledWith('0 0 1/1 * *'.split(' '), 'At 12:00 AM, every day', 'weekly')
+      expect(props.onChange).toHaveBeenLastCalledWith('0 0 * * *'.split(' '), 'At 12:00 AM, every day', 'weekly')
+      expect(screen.getByText('(0 0 * * *)')).toBeInTheDocument()
     })
 
     test('Should return default cron expression for Every Tuesday and friday', async () => {
@@ -44,12 +44,22 @@ describe('Cron Component', () => {
       await userEvent.click(screen.getByText('Weekly'))
       await userEvent.click(screen.getByText('Tuesday'))
       await userEvent.click(screen.getByText('Monday'))
-      expect(screen.getByText('(0 0 1/1 * MON,TUE)')).toBeInTheDocument()
+      expect(screen.getByText('(0 0 * * MON,TUE)')).toBeInTheDocument()
+
       expect(props.onChange).toHaveBeenLastCalledWith(
-        '0 0 1/1 * MON,TUE'.split(' '),
+        '0 0 * * MON,TUE'.split(' '),
         'At 12:00 AM, only on Monday and Tuesday',
         'weekly'
       )
+    })
+
+    test('Should return default cron expression for Every Tuesday and friday by value', async () => {
+      render(
+        <IntlProvider messages={cronMessages} locale="en" defaultLocale="en">
+          <Cron {...props} value={'0 0 * * MON,TUE'.split(' ')} />
+        </IntlProvider>
+      )
+      expect(screen.getByText('(0 0 * * MON,TUE)')).toBeInTheDocument()
     })
   })
 
@@ -61,6 +71,19 @@ describe('Cron Component', () => {
         </IntlProvider>
       )
       await userEvent.click(screen.getByText('Quarterly'))
+      expect(screen.getByText('(0 0 1 */3 *)')).toBeInTheDocument()
+      expect(props.onChange).toHaveBeenLastCalledWith(
+        '0 0 1 */3 *'.split(' '),
+        'At 12:00 AM, on day 1 of the month, every 3 months',
+        'quarterly'
+      )
+    })
+    test('Should return default cron expression for Quarterly by value', async () => {
+      render(
+        <IntlProvider messages={cronMessages} locale="en" defaultLocale="en">
+          <Cron {...props} value={'0 0 1 */3 *'.split(' ')} />
+        </IntlProvider>
+      )
       expect(screen.getByText('(0 0 1 */3 *)')).toBeInTheDocument()
       expect(props.onChange).toHaveBeenLastCalledWith(
         '0 0 1 */3 *'.split(' '),
@@ -104,8 +127,8 @@ describe('Cron Component', () => {
       )
       await userEvent.click(screen.getByText('Daily'))
 
-      expect(screen.getByText('(0 0 1/1 * *)')).toBeInTheDocument()
-      expect(props.onChange).toHaveBeenLastCalledWith('0 0 1/1 * *'.split(' '), 'At 12:00 AM, every day', 'daily')
+      expect(props.onChange).toHaveBeenLastCalledWith('0 0 */1 * *'.split(' '), 'At 12:00 AM, every day', 'daily')
+      expect(screen.getByText('(0 0 */1 * *)')).toBeInTheDocument()
     })
     it('Should return default cron expression for Every week day', async () => {
       render(
@@ -116,12 +139,12 @@ describe('Cron Component', () => {
       await userEvent.click(screen.getByText('Daily'))
       await userEvent.click(screen.getByText('Every week day'))
 
-      expect(screen.getByText('(0 0 * * 1-5)')).toBeInTheDocument()
       expect(props.onChange).toHaveBeenLastCalledWith(
-        '0 0 * * 1-5'.split(' '),
+        '0 0 1/1 * 1-5'.split(' '),
         'At 12:00 AM, Monday through Friday',
         'daily'
       )
+      expect(screen.getByText('(0 0 1/1 * 1-5)')).toBeInTheDocument()
     })
   })
 })
