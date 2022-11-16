@@ -10,13 +10,6 @@ function App() {
   const [receivedValues, setReceivedValues] = useState(['', '', ''])
   const handleOnChange = (cronExpression, humanReadable, tab) =>
     setReceivedValues([cronExpression.join(' '), humanReadable, tab])
-  const options = [
-    { name: 'daily', value: ['0', '0', '1/1', '*', '*'] },
-    { name: 'weekly', value: ['0', '0', '1/1', '*', '*'] },
-    { name: 'monthly', value: ['0', '0', '1', '*', '*'] },
-    { name: 'quarterly', value: ['0', '0', '1', '*/3', '*'] },
-    { name: 'yearly', value: ['0', '0', '1', '1', '*'] },
-  ]
 
   return (
     <IntlProvider messages={cronMessages} locale="en" defaultLocale="en">

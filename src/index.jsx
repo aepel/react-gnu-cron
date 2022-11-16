@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './demo/index.css'
-import Cron from './component/Cron/Cron'
+import Cron from 
 import App from './demo/App'
 import reportWebVitals from './reportWebVitals'
 
@@ -17,4 +17,4 @@ root.render(
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals()
 
-export default Cron
+export { default } from './component/Cron/Cron'
