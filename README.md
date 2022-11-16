@@ -65,7 +65,7 @@ yarn add react-gnu-cron
 ### i18n extensible
 
 It is possible to extend and translate to your desire locale doing the translation of the placeholders located
-[here]("./src/component/Cron/components/cronMessages.js")
+[here](./src/component/Cron/components/cronMessages.js)
 
 
 ### Contributing
