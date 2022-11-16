@@ -3,12 +3,11 @@ import { Checkbox, FormControlLabel, FormGroup, Stack } from '@mui/material'
 import classNames from 'classnames/bind'
 import { useIntl } from 'react-intl'
 import ChooseTime from './components/ChooseTime'
-import cronMessages from './components/cronMessages'
 import styles from './styles.css'
 
 const classes = classNames.bind(styles)
 function Weekly({ cronExpression, onChange }) {
-  const { formatMessage } = useIntl()
+  const { formatMessage, messages } = useIntl()
   const weekDays = {
     SUN: 0,
     MON: 1,
@@ -64,7 +63,7 @@ function Weekly({ cronExpression, onChange }) {
                   checked={cronExpression[4].search('MON') !== -1}
                 />
               }
-              label={formatMessage(cronMessages.monday)}
+              label={formatMessage(messages.monday)}
             />
             <FormControlLabel
               control={
@@ -76,7 +75,7 @@ function Weekly({ cronExpression, onChange }) {
                   checked={cronExpression[4].search('TUE') !== -1}
                 />
               }
-              label={formatMessage(cronMessages.tuesday)}
+              label={formatMessage(messages.tuesday)}
             />
             <FormControlLabel
               control={
@@ -88,7 +87,7 @@ function Weekly({ cronExpression, onChange }) {
                   checked={cronExpression[4].search('WED') !== -1}
                 />
               }
-              label={formatMessage(cronMessages.wednesday)}
+              label={formatMessage(messages.wednesday)}
             />
             <FormControlLabel
               control={
@@ -100,7 +99,7 @@ function Weekly({ cronExpression, onChange }) {
                   checked={cronExpression[4].search('THU') !== -1}
                 />
               }
-              label={formatMessage(cronMessages.thursday)}
+              label={formatMessage(messages.thursday)}
             />
             <FormControlLabel
               control={
@@ -112,7 +111,7 @@ function Weekly({ cronExpression, onChange }) {
                   checked={cronExpression[4].search('FRI') !== -1}
                 />
               }
-              label={formatMessage(cronMessages.friday)}
+              label={formatMessage(messages.friday)}
             />
             <FormControlLabel
               control={
@@ -124,7 +123,7 @@ function Weekly({ cronExpression, onChange }) {
                   checked={cronExpression[4].search('SAT') !== -1}
                 />
               }
-              label={formatMessage(cronMessages.saturday)}
+              label={formatMessage(messages.saturday)}
             />
             <FormControlLabel
               control={
@@ -136,7 +135,7 @@ function Weekly({ cronExpression, onChange }) {
                   checked={cronExpression[4].search('SUN') !== -1}
                 />
               }
-              label={formatMessage(cronMessages.sunday)}
+              label={formatMessage(messages.sunday)}
             />
           </FormGroup>
         </div>

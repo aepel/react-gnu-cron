@@ -3,14 +3,13 @@ import { FormControlLabel, FormGroup, Radio, Stack, TextField } from '@mui/mater
 import classNames from 'classnames/bind'
 import { useIntl } from 'react-intl'
 import ChooseMonth from './components/ChooseMonth'
-import cronMessages from './components/cronMessages'
 import styles from './styles.css'
 
 const classes = classNames.bind(styles)
 
 function Yearly({ cronExpression, onChange }) {
   const [every, setEvery] = useState('1')
-  const { formatMessage } = useIntl()
+  const { formatMessage, messages } = useIntl()
   const onDayChange = e => {
     if ((parseInt(e.target.value, 10) > 0 && parseInt(e.target.value, 10) <= 31) || e.target.value === '') {
       const val = [...cronExpression]
@@ -44,7 +43,7 @@ function Yearly({ cronExpression, onChange }) {
                       }}
                     />
                   }
-                  label={formatMessage(cronMessages.dayOfTheMonth)}
+                  label={formatMessage(messages.dayOfTheMonth)}
                 />
               </FormGroup>
             </Stack>
@@ -55,7 +54,7 @@ function Yearly({ cronExpression, onChange }) {
       <Stack direction="row" spacing={1} alignItems="center">
         <TextField
           id="outlined-number"
-          label={formatMessage(cronMessages.dayOfEveryMonth)}
+          label={formatMessage(messages.dayOfEveryMonth)}
           value={cronExpression[2]}
           onChange={onDayChange}
           type="number"

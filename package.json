@@ -1,6 +1,29 @@
 {
   "name": "react-gnu-cron",
   "version": "0.1.0",
+  "description": "A React cron editor using Material UI, inspired by react-cron",
+  "author": "Ariel Epelman <ariel.epelman@gmail.com> (https://github.com/aepel/react-cron)",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "reactjs",
+    "js",
+    "cron",
+    "crontab",
+    "editor",
+    "widget",
+    "generator",
+    "cronjob",
+    "schedule",
+    "parser"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aepel/react-cron.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aepel/react-cron/issues"
+  },
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
@@ -9,8 +32,10 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
+    "boilerplate-readme-template": "^1.0.1",
     "classnames": "^2.3.2",
     "cronstrue": "^2.15.0",
+    "global": "^4.4.0",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -25,7 +50,8 @@
     "test": "react-scripts test",
     "test:snapshot": "react-scripts test -- -u",
     "eject": "react-scripts eject",
-    "lint": "eslint src/**/*.js src/**/*.jsx"
+    "lint": "eslint src/**/*.js src/**/*.jsx",
+    "lint:fix": "eslint --fix src/**/*.js src/**/*.jsx"
   },
   "browserslist": {
     "production": [

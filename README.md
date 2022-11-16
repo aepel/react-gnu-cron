@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# React Cron Gnu generator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a React component for generating expressions for GNU CronTab using Material UI components. My final version will also cover the possibility of java cron expression. The use case where I use It, was to set up a periodical task to be executed using node-cron scheduler.
 
-## Available Scripts
+## List of features
 
-In the project directory, you can run:
+- Posibility to use the human readable expression or the raw crontab expression.
+- Different modes and options.
+- Developed with hooks and material ui
+- i18n Extensible
 
-### `npm start`
+### Screenshoots
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![daily](./src/demo/resources/daily.png)
+![minutely](./src/demo/resources/minutely.png)
+![quarterly](./src/demo/resources/Quarterly.png)
+![weekly](./src/demo/resources/Weekly.png)
+![monthly](./src/demo/resources/Monthly.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### How to use it
 
-### `npm test`
+It is require to use React-intl package for internazionalization
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```html
+<IntlProvider messages="{cronMessages}" locale="en" defaultLocale="en">
+  .....
+  <Cron onChange="{handleOnChange}" showResultText showResultCron />
+  <IntlProvider
+/></IntlProvider>
+```
 
-### `npm run build`
+It is possible to extend and translate to your desire locale doing the translation of the placeholders located [here]("./src/component/Cron/components/cronMessages.js")
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Props
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+showResultText (optional): (default True | False) if true will show the human readable text as part of the component
+showResultCron (optional): (True | default False) if true will show the cron expression as part of the component
+value (optional): the value for setting up the initial state.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+onChange (required): (function) which receives 3 parameters
 
-### `npm run eject`
+```javascript
+const handleOnChange = (cronExpression, humanReadable, tab) => ....
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+cronExpression: Array where every single component it will be the cron expression part `[minute, hour, day(month), month, day(week) ]`
+humanReadable: String with the human readable cron expression.
+tab: is the name of the tab selected
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Download & Installation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**npm**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```shell
+npm i react-gnu-cron
+```
 
-## Learn More
+**yarn**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```shell
+yarn add react-gnu-cron
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### i18n extensible
 
-### Code Splitting
+For translate to the
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Contributing
 
-### Analyzing the Bundle Size
+Keep it simple. Keep it minimal. Don't put every single feature just because you can. Feel free to open PR to be reviewed
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Authors or Acknowledgments
 
-### Making a Progressive Web App
+- Ariel Epelman
+- This project was a total refactor of this one. <https://sojinantony01.github.io/react-cron-generator/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### License
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the MIT License

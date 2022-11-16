@@ -22,12 +22,7 @@ function App() {
     <IntlProvider messages={cronMessages} locale="en" defaultLocale="en">
       <div className="App">
         <div className="App-div">
-          <Cron
-            onChange={handleOnChange}
-            value={'0 0 * * MON,TUE'.split(' ')}
-            showResultText={false}
-            showResultCron={false}
-          />
+          <Cron onChange={handleOnChange} showResultText showResultCron />
           <Stack direction="column" spacing={2}>
             CronExpression: {receivedValues[0]}
           </Stack>

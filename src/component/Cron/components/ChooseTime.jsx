@@ -4,23 +4,22 @@ import classNames from 'classnames/bind'
 import range from 'lodash/range'
 import { useIntl } from 'react-intl'
 import styles from '../styles.css'
-import cronMessages from './cronMessages'
 
 const classes = classNames.bind(styles)
 
 function ChooseTime({ hour, minute, changeHours, changeMinutes, disabled }) {
-  const { formatMessage } = useIntl()
+  const { formatMessage, messages } = useIntl()
 
   return (
     <>
       <FormControl>
-        <InputLabel id="demo-simple-select-label">{formatMessage(cronMessages.hours)}</InputLabel>
+        <InputLabel id="demo-simple-select-label">{formatMessage(messages.hours)}</InputLabel>
         <Select
           value={parseInt(hour || 0, 10)}
           onChange={changeHours}
           disabled={disabled}
           data-testid="select-wrapper-chooseTime-hour"
-          label={formatMessage(cronMessages.hours)}
+          label={formatMessage(messages.hours)}
           className={classes('Input_Width')}
           inputProps={{ 'data-testid': 'select-chooseTime-hour' }}
         >
@@ -33,12 +32,12 @@ function ChooseTime({ hour, minute, changeHours, changeMinutes, disabled }) {
       </FormControl>
 
       <FormControl>
-        <InputLabel id="simple-select-minutes">{formatMessage(cronMessages.minutes)}</InputLabel>
+        <InputLabel id="simple-select-minutes">{formatMessage(messages.minutes)}</InputLabel>
         <Select
           value={parseInt(minute || 0, 10)}
           onChange={changeMinutes}
           disabled={disabled}
-          label={formatMessage(cronMessages.minutes)}
+          label={formatMessage(messages.minutes)}
           className={classes('Input_Width')}
         >
           {range(0, 4).map(m => (

@@ -3,14 +3,13 @@ import { FormControlLabel, FormGroup, Radio, Stack, TextField } from '@mui/mater
 import classNames from 'classnames/bind'
 import { useIntl } from 'react-intl'
 import ChooseTime from './components/ChooseTime'
-import cronMessages from './components/cronMessages'
 import styles from './styles.css'
 
 const classes = classNames.bind(styles)
 
 function Monthly({ cronExpression, onChange }) {
   const [every, setEvery] = useState('1')
-  const { formatMessage } = useIntl()
+  const { formatMessage, messages } = useIntl()
   const onDayChange = e => {
     if ((parseInt(e.target.value, 10) > 0 && parseInt(e.target.value, 10) <= 31) || e.target.value === '') {
       const val = [
@@ -61,7 +60,7 @@ function Monthly({ cronExpression, onChange }) {
                       }}
                     />
                   }
-                  label={formatMessage(cronMessages.dayOfEveryMonth)}
+                  label={formatMessage(messages.dayOfEveryMonth)}
                 />
               </FormGroup>
               <FormGroup row>
@@ -95,7 +94,7 @@ function Monthly({ cronExpression, onChange }) {
         {every === '1' ? (
           <TextField
             id="outlined-number"
-            label={formatMessage(cronMessages.dayOfEveryMonth)}
+            label={formatMessage(messages.dayOfEveryMonth)}
             value={cronExpression[2]}
             onChange={onDayChange}
             type="number"
@@ -107,7 +106,7 @@ function Monthly({ cronExpression, onChange }) {
           <TextField
             style={{ minWidth: '30%' }}
             id="outlined-number"
-            label={formatMessage(cronMessages.everyXMonths)}
+            label={formatMessage(messages.everyXMonths)}
             value={cronExpression[3].split('/')[1]}
             onChange={onEveryXMonth}
             type="number"
@@ -121,7 +120,7 @@ function Monthly({ cronExpression, onChange }) {
         {/* {every === '4' ? (
               <TextField
                 id="outlined-number"
-                label={formatMessage(cronMessages.daysBeforeEndMonth)}
+                label={formatMessage(messages.daysBeforeEndMonth)}
                 value={cronExpression[3].split('-')[1]}
                 onChange={onLastDayChange}
                 type="number"

@@ -2,10 +2,9 @@ import React, { useState } from 'react'
 import { FormControlLabel, FormGroup, Radio, Stack, TextField } from '@mui/material'
 import { useIntl } from 'react-intl'
 import ChooseTime from './components/ChooseTime'
-import cronMessages from './components/cronMessages'
 
 function Daily({ cronExpression, onChange }) {
-  const { formatMessage } = useIntl()
+  const { formatMessage, messages } = useIntl()
   const [days, setDays] = useState(1)
   const onDayChange = e => {
     if ((e.target.value > 0 && e.target.value < 32) || e.target.value === '') {
@@ -51,7 +50,7 @@ function Daily({ cronExpression, onChange }) {
               checked={cronExpression[4] === '*'}
             />
           }
-          label={formatMessage(cronMessages.everyDay)}
+          label={formatMessage(messages.everyDay)}
         />
         <FormControlLabel
           control={
@@ -64,14 +63,14 @@ function Daily({ cronExpression, onChange }) {
               checked={cronExpression[4] === '1-5'}
             />
           }
-          label={formatMessage(cronMessages.everyWeekDay)}
+          label={formatMessage(messages.everyWeekDay)}
         />
       </FormGroup>
       <Stack direction="row" spacing={1} alignItems="center">
         {cronExpression[4] === '*' ? (
           <TextField
             id="outlined-number"
-            label={formatMessage(cronMessages.everyDay)}
+            label={formatMessage(messages.everyDay)}
             value={days}
             onChange={onDayChange}
             type="number"

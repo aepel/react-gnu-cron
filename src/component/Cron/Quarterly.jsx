@@ -3,13 +3,12 @@ import { FormControlLabel, FormGroup, Radio, Stack, TextField } from '@mui/mater
 import classNames from 'classnames/bind'
 import { useIntl } from 'react-intl'
 import ChooseTime from './components/ChooseTime'
-import cronMessages from './components/cronMessages'
 import styles from './styles.css'
 
 const classes = classNames.bind(styles)
 function Quarterly({ cronExpression, onChange }) {
   const [every, setEvery] = useState('1')
-  const { formatMessage } = useIntl()
+  const { formatMessage, messages } = useIntl()
   const onDayChange = e => {
     if ((parseInt(e.target.value, 10) > 0 && parseInt(e.target.value, 10) <= 31) || e.target.value === '') {
       const val = [cronExpression[0], cronExpression[1], cronExpression[2], '*/3', '*']
@@ -70,7 +69,7 @@ function Quarterly({ cronExpression, onChange }) {
                     checked
                   />
                 }
-                label={formatMessage(cronMessages.dayOfEveryQuarter)}
+                label={formatMessage(messages.dayOfEveryQuarter)}
               />
             </FormGroup>
           </Stack>
@@ -80,7 +79,7 @@ function Quarterly({ cronExpression, onChange }) {
         {every === '1' ? (
           <TextField
             id="outlined-number"
-            label={formatMessage(cronMessages.dayOfEveryQuarter)}
+            label={formatMessage(messages.dayOfEveryQuarter)}
             value={cronExpression[2]}
             onChange={onDayChange}
             type="number"

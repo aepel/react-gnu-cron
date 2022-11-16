@@ -3,7 +3,6 @@ import { Card, CardContent, Tab, Tabs } from '@mui/material'
 import classNames from 'classnames/bind'
 import PropTypes from 'prop-types'
 import { useIntl } from 'react-intl'
-import cronMessages from './components/cronMessages'
 import DisplayCard from './components/DisplayCard'
 import Daily from './Daily'
 import Minutely from './Minutely'
@@ -27,7 +26,7 @@ const options = [
 
 function Cron({ showResultText, showResultCron, onChange, value = null }) {
   const intl = useIntl()
-  const { locale, formatMessage } = intl
+  const { locale, formatMessage, messages } = intl
 
   const [cronExpression, setCronExpression] = useState(value ?? DEFAULT_VALUE)
   const [selectedTab, setSelectedTab] = useState(1)
@@ -76,12 +75,7 @@ function Cron({ showResultText, showResultCron, onChange, value = null }) {
       <CardContent>
         <Tabs value={selectedTab} className={classes('Tab_Margin')}>
           {options.map((option, idx) => (
-            <Tab
-              fullWidth
-              key={idx}
-              label={formatMessage(cronMessages[option.name])}
-              onClick={() => onTabChange(idx)}
-            />
+            <Tab fullWidth key={idx} label={formatMessage(messages[option.name])} onClick={() => onTabChange(idx)} />
           ))}
         </Tabs>
 
