@@ -1,6 +1,6 @@
 {
   "name": "react-gnu-cron",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A React cron editor using Material UI, inspired by react-cron",
   "author": "Ariel Epelman <ariel.epelman@gmail.com> (https://github.com/aepel/react-cron)",
   "license": "MIT",
