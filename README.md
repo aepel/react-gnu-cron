@@ -29,7 +29,8 @@ It is require to use React-intl package for internazionalization
 /></IntlProvider>
 ```
 
-It is possible to extend and translate to your desire locale doing the translation of the placeholders located [here]("./src/component/Cron/components/cronMessages.js")
+It is possible to extend and translate to your desire locale doing the translation of the placeholders located
+[here]("./src/component/Cron/components/cronMessages.js")
 
 #### Props
 
