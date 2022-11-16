@@ -84,6 +84,15 @@ describe('Cron Component', () => {
         'At 12:00 AM, on day 1 of the month',
         'monthly'
       )
+      // Can't make it work, i trully don't know.
+      // const timeSelector = screen.getByTestId('select-chooseTime-hour')
+
+      // await fireEvent.change(timeSelector, { target: { value: 14 } })
+      // expect(props.onChange).toHaveBeenLastCalledWith(
+      //   '0 2 1 * *'.split(' '),
+      //   'At 02:00 PM, on day 1 of the month',
+      //   'monthly'
+      // )
     })
   })
   describe('Daily', () => {
