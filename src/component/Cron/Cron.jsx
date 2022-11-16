@@ -33,7 +33,6 @@ function Cron({ showResultText, showResultCron, onChange, value = null }) {
   useEffect(() => {
     if (value) setCronExpression(value)
     // eslint-disable-next-line no-console
-    console.log('🚀 ~ file: Cron.jsx ~ line 35 ~ useEffect ~ value', value)
   }, [value])
   const onTabChange = idx => {
     setSelectedTab(idx)
@@ -56,7 +55,7 @@ function Cron({ showResultText, showResultCron, onChange, value = null }) {
   const Selector = options[selectedTab].Component
 
   return (
-    <Card style={{ maxWidht: '100%', minWidth: '40%' }}>
+    <Card style={{ maxWidht: '100%', minWidth: '25%' }}>
       <CardContent>
         <Tabs value={selectedTab} className={classes('Tab_Margin')}>
           {options.map((option, idx) => (

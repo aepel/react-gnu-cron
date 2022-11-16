@@ -1,5 +1,5 @@
 import React from 'react'
-import { MenuItem, Stack, Select, InputLabel, FormControl } from '@mui/material'
+import { MenuItem, Select, InputLabel, FormControl } from '@mui/material'
 import classNames from 'classnames/bind'
 import range from 'lodash/range'
 import { useIntl } from 'react-intl'
@@ -13,7 +13,7 @@ function ChooseTime({ hour, minute, changeHours, changeMinutes, disabled }) {
 
   return (
     <>
-      <FormControl styles={{ marginTop: '20px' }}>
+      <FormControl>
         <InputLabel id="demo-simple-select-label">{formatMessage(cronMessages.hours)}</InputLabel>
         <Select
           value={parseInt(hour || 0, 10)}

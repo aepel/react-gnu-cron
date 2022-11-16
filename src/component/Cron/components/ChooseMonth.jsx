@@ -1,5 +1,5 @@
 import React from 'react'
-import { MenuItem, TextField, Stack } from '@mui/material'
+import { MenuItem, Select, InputLabel, FormControl } from '@mui/material'
 import classNames from 'classnames/bind'
 import range from 'lodash/range'
 import { useIntl } from 'react-intl'
@@ -12,13 +12,12 @@ function ChooseMonth({ month, changeMonth, disabled }) {
   const { formatMessage } = useIntl()
 
   return (
-    <Stack direction="row" spacing={1} alignItems="flex-start" className={classes('Input_Wrapper')}>
-      <TextField
-        select
+    <FormControl>
+      <InputLabel id="select-month">{formatMessage(cronMessages.month)}</InputLabel>
+      <Select
         value={month}
         onChange={changeMonth}
         disabled={disabled}
-        variant="standard"
         className={classes('Input_Width')}
         label={formatMessage(cronMessages.month)}
       >
@@ -27,8 +26,8 @@ function ChooseMonth({ month, changeMonth, disabled }) {
             {formatMessage(cronMessages[m])}
           </MenuItem>
         ))}
-      </TextField>
-    </Stack>
+      </Select>
+    </FormControl>
   )
 }
 
