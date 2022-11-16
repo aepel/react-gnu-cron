@@ -1,5 +1,5 @@
 import React from 'react'
-import { MenuItem, TextField, Stack, Select, InputLabel, FormControl } from '@mui/material'
+import { MenuItem, Stack, Select, InputLabel, FormControl } from '@mui/material'
 import classNames from 'classnames/bind'
 import range from 'lodash/range'
 import { useIntl } from 'react-intl'
@@ -12,8 +12,8 @@ function ChooseTime({ hour, minute, changeHours, changeMinutes, disabled }) {
   const { formatMessage } = useIntl()
 
   return (
-    <Stack direction="row" spacing={1} alignItems="flex-start" className={classes('Input_Wrapper')}>
-      <FormControl>
+    <>
+      <FormControl styles={{ marginTop: '20px' }}>
         <InputLabel id="demo-simple-select-label">{formatMessage(cronMessages.hours)}</InputLabel>
         <Select
           value={parseInt(hour || 0, 10)}
@@ -48,7 +48,7 @@ function ChooseTime({ hour, minute, changeHours, changeMinutes, disabled }) {
           ))}
         </Select>
       </FormControl>
-    </Stack>
+    </>
   )
 }
 

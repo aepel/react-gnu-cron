@@ -4,6 +4,7 @@
 
 .Content {
   margin-left: 12px;
+  min-width: 300px;
 }
 
 .Input_Wrapper {

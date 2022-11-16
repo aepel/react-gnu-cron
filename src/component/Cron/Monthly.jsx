@@ -18,7 +18,7 @@ function Monthly({ cronExpression, onChange }) {
         cronExpression[1] === '*' ? '0' : cronExpression[1],
         cronExpression[2],
         '1/1',
-        '?',
+        '*',
       ]
       val[2] = `${e.target.value}`
       onChange(val)
@@ -102,7 +102,6 @@ function Monthly({ cronExpression, onChange }) {
             InputLabelProps={{
               shrink: true,
             }}
-            margin="normal"
           />
         ) : (
           <TextField
@@ -115,11 +114,10 @@ function Monthly({ cronExpression, onChange }) {
               shrink: true,
             }}
             InputProps={{ inputProps: { min: 1, max: 11 } }}
-            margin="normal"
           />
         )}
-        <Stack direction="row" spacing={1} alignItems="flex-start">
-          {/* {every === '4' ? (
+
+        {/* {every === '4' ? (
               <TextField
                 id="outlined-number"
                 label={formatMessage(cronMessages.daysBeforeEndMonth)}
@@ -128,17 +126,16 @@ function Monthly({ cronExpression, onChange }) {
                 type="number"
                 className={classes('Input_Width')}
                 InputLabelProps={{ readOnly: every !== '4', shrink: true }}
-                margin="normal"
+                
                 disabled={every !== '4'}
               />
             ) : null} */}
-          <ChooseTime
-            hour={cronExpression[1]}
-            minute={cronExpression[0]}
-            changeHours={onAtHourChange}
-            changeMinutes={onAtMinuteChange}
-          />
-        </Stack>
+        <ChooseTime
+          hour={cronExpression[1]}
+          minute={cronExpression[0]}
+          changeHours={onAtHourChange}
+          changeMinutes={onAtMinuteChange}
+        />
       </Stack>
     </Stack>
   )

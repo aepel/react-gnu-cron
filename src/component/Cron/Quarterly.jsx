@@ -88,7 +88,6 @@ function Quarterly({ cronExpression, onChange }) {
               readOnly: every !== '1',
               shrink: true,
             }}
-            margin="normal"
             disabled={every !== '1'}
           />
         ) : null}

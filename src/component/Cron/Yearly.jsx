@@ -62,7 +62,6 @@ function Yearly({ cronExpression, onChange }) {
           InputLabelProps={{
             shrink: true,
           }}
-          margin="normal"
         />
         <Stack direction="row" spacing={1} alignItems="flex-start">
           <ChooseMonth month={cronExpression[3]} changeMonth={onMonthChange} />
