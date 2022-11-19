@@ -25,7 +25,7 @@
     "url": "git+https://github.com/aepel/react-cron.git"
   },
   "bugs": {
-    "url": "https://github.com/aepel/react-cron/issues"
+    "url": "https://github.com/aepel/react-gnu-cron/issues"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",

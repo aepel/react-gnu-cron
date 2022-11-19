@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { Checkbox, FormControlLabel, FormGroup, Stack } from '@mui/material'
 import classNames from 'classnames/bind'
-import { useIntl } from 'react-intl'
+import useI18n from '../../hooks/useI18n/index'
 import ChooseTime from './components/ChooseTime'
 import styles from './styles.css'
 
 const classes = classNames.bind(styles)
 function Weekly({ cronExpression, onChange }) {
-  const { formatMessage, messages } = useIntl()
+  const { formatMessage, messages } = useI18n()
   const weekDays = {
     SUN: 0,
     MON: 1,

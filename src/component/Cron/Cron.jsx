@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Card, CardContent, Tab, Tabs } from '@mui/material'
 import classNames from 'classnames/bind'
 import PropTypes from 'prop-types'
-import { useIntl } from 'react-intl'
+import useI18n from '../../hooks/useI18n/index'
 import DisplayCard from './components/DisplayCard'
 import Daily from './Daily'
 import Minutely from './Minutely'
@@ -25,8 +25,7 @@ const options = [
 ]
 
 function Cron({ showResultText, showResultCron, onChange, value = null }) {
-  const intl = useIntl()
-  const { locale, formatMessage, messages } = intl
+  const { locale, formatMessage, messages } = useI18n()
 
   const [cronExpression, setCronExpression] = useState(value ?? DEFAULT_VALUE)
   const [selectedTab, setSelectedTab] = useState(1)

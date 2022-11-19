@@ -2,13 +2,13 @@ import React from 'react'
 import { MenuItem, Select, InputLabel, FormControl } from '@mui/material'
 import classNames from 'classnames/bind'
 import range from 'lodash/range'
-import { useIntl } from 'react-intl'
+import useI18n from '../../../hooks/useI18n/index'
 import styles from '../styles.css'
 
 const classes = classNames.bind(styles)
 
 function ChooseTime({ hour, minute, changeHours, changeMinutes, disabled }) {
-  const { formatMessage, messages } = useIntl()
+  const { formatMessage, messages } = useI18n()
 
   return (
     <>

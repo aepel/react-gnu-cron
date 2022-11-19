@@ -1,10 +1,8 @@
 import React from 'react'
-import { IntlProvider } from 'react-intl'
-import cronMessages from '../component/Cron/components/cronMessages'
 import Cron from '../component/index'
 
 export default {
-  title: 'Cron GNU/With React Intl',
+  title: 'Cron GNU/Without react-intl',
   component: Cron,
   args: {
     parameters: { actions: { argTypesRegex: '^on.*' } },
@@ -12,11 +10,7 @@ export default {
 }
 
 function Template(args) {
-  return (
-    <IntlProvider messages={cronMessages} defaultLocale="en" locale="en">
-      <Cron {...args} />
-    </IntlProvider>
-  )
+  return <Cron {...args} />
 }
 
 const WithoutValue = Template.bind({})

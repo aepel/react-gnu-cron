@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { FormControlLabel, FormGroup, Radio, Stack, TextField } from '@mui/material'
-import { useIntl } from 'react-intl'
+import useI18n from '../../hooks/useI18n/index'
 import ChooseTime from './components/ChooseTime'
 
 function Daily({ cronExpression, onChange }) {
-  const { formatMessage, messages } = useIntl()
+  const { formatMessage, messages } = useI18n()
   const [days, setDays] = useState(1)
   const onDayChange = e => {
     if ((e.target.value > 0 && e.target.value < 32) || e.target.value === '') {

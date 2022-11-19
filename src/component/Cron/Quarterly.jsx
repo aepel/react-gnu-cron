@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import { FormControlLabel, FormGroup, Radio, Stack, TextField } from '@mui/material'
 import classNames from 'classnames/bind'
-import { useIntl } from 'react-intl'
+import useI18n from '../../hooks/useI18n/index'
 import ChooseTime from './components/ChooseTime'
 import styles from './styles.css'
 
 const classes = classNames.bind(styles)
 function Quarterly({ cronExpression, onChange }) {
   const [every, setEvery] = useState('1')
-  const { formatMessage, messages } = useIntl()
+  const { formatMessage, messages } = useI18n()
   const onDayChange = e => {
     if ((parseInt(e.target.value, 10) > 0 && parseInt(e.target.value, 10) <= 31) || e.target.value === '') {
       const val = [cronExpression[0], cronExpression[1], cronExpression[2], '*/3', '*']

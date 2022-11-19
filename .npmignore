@@ -4,4 +4,8 @@
 /node_modules
 /src
 /public
-
+/.storybook
+/.parcel-cache
+/.vscode
+/.*
+README.md
