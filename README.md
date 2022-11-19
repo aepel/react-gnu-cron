@@ -11,11 +11,11 @@ This is a React component for generating expressions for GNU CronTab using Mater
 
 ### Screenshoots
 
-![daily](./src/demo/resources/daily.png)
-![minutely](./src/demo/resources/minutely.png)
-![quarterly](./src/demo/resources/Quarterly.png)
-![weekly](./src/demo/resources/Weekly.png)
-![monthly](./src/demo/resources/Monthly.png)
+![daily](./public/daily.png)
+![minutely](./public/minutely.png)
+![quarterly](./public/Quarterly.png)
+![weekly](./public/Weekly.png)
+![monthly](./public/Monthly.png)
 
 ### How to use it
 
@@ -66,7 +66,6 @@ yarn add react-gnu-cron
 
 It is possible to extend and translate to your desire locale doing the translation of the placeholders located
 [here](./src/component/Cron/components/cronMessages.js)
-
 
 ### Contributing
 

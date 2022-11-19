@@ -4,6 +4,9 @@
   "description": "A React cron editor using Material UI, inspired by react-cron",
   "author": "Ariel Epelman <ariel.epelman@gmail.com> (https://github.com/aepel/react-cron)",
   "license": "MIT",
+  "source": "src/index.jsx",
+  "main": "dist/main.js",
+  "module": "dist/module.js",
   "keywords": [
     "react",
     "reactjs",
@@ -29,6 +32,7 @@
     "@emotion/styled": "^11.10.5",
     "@mui/material": "^5.10.13",
     "@mui/styled-engine-sc": "^5.10.6",
+    "@swc/helpers": "^0.4.13",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
@@ -37,6 +41,7 @@
     "cronstrue": "^2.15.0",
     "global": "^4.4.0",
     "lodash": "^4.17.21",
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-intl": "^6.2.1",
@@ -46,12 +51,15 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
     "test": "react-scripts test",
     "test:snapshot": "react-scripts test -- -u",
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.js src/**/*.jsx",
-    "lint:fix": "eslint --fix src/**/*.js src/**/*.jsx"
+    "lint:fix": "eslint --fix src/**/*.js src/**/*.jsx",
+    "sb": "start-storybook -p 6006 -s public",
+    "build-sb": "build-storybook -s public",
+    "watch": "parcel watch",
+    "build": "parcel build"
   },
   "browserslist": {
     "production": [
@@ -66,7 +74,18 @@
     ]
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^6.5.13",
+    "@storybook/addon-essentials": "^6.5.13",
+    "@storybook/addon-interactions": "^6.5.13",
+    "@storybook/addon-links": "^6.5.13",
+    "@storybook/builder-webpack5": "^6.5.13",
+    "@storybook/manager-webpack5": "^6.5.13",
+    "@storybook/node-logger": "^6.5.13",
+    "@storybook/preset-create-react-app": "^4.1.2",
+    "@storybook/react": "^6.5.13",
+    "@storybook/testing-library": "0.0.13",
     "@testing-library/dom": "^8.19.0",
+    "babel-plugin-named-exports-order": "0.0.2",
     "eslint": "^8.27.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.5.0",
@@ -78,8 +97,24 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-security": "^1.5.0",
     "eslint-plugin-small-import": "^1.0.0",
+    "eslint-plugin-storybook": "^0.6.7",
     "jest-environment-jsdom": "^29.3.1",
+    "parcel": "^2.8.0",
     "prettier": "^2.7.1",
-    "react-test-renderer": "^18.2.0"
+    "react-test-renderer": "^18.2.0",
+    "webpack": "^5.75.0",
+    "yarn-audit-fix": "^9.3.7"
+  },
+  "eslintConfig": {
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
   }
 }
